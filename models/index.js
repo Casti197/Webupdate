@@ -2,11 +2,11 @@ import Sequelize from 'sequelize';
 import config from '../config/config.js';
 
 // Import model factories
-import habilidadFactory from './habilidad.cjs';
-import perfilFactory from './perfil.cjs';
-import personajeFactory from './personaje.cjs';
-import personajeHabilidadFactory from './personajehabilidad.cjs';
-import usuarioFactory from './usuario.cjs';
+import habilidadFactory from './habilidad.js';
+import perfilFactory from './perfil.js';
+import personajeFactory from './personaje.js';
+import personajeHabilidadFactory from './personajehabilidad.js';
+import usuarioFactory from './usuario.js';
 
 const env = process.env.NODE_ENV || 'development';
 const dbConfig = config[env];
