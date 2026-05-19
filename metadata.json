@@ -1,0 +1,6 @@
+{
+  "name": "RPG Modular API Builder",
+  "description": "Un sistema de gestión de personajes y habilidades RPG usando Express.Router y arquitectura modular.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
