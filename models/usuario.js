@@ -1,14 +1,8 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+import { Model } from 'sequelize';
+import bcrypt from 'bcrypt';
+
+export default (sequelize, DataTypes) => {
   class Usuario extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
       Usuario.hasOne(models.Perfil, { foreignKey: 'usuarioId' });
     }
@@ -19,8 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       set(value) {
-        // We will hash in hooks for better control, or here.
-        // Hooks are better for bulk operations too if properly configured.
         this.setDataValue('password', value);
       }
     },
@@ -37,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeSave: async (usuario) => {
         if (usuario.changed('password')) {
-          const bcrypt = require('bcrypt');
           const hash = await bcrypt.hash(usuario.password, 10);
           usuario.password = hash;
         }
