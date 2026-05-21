@@ -26,7 +26,8 @@ async function startServer() {
   app.get('/authors', (req, res) => {
     res.json([
       { nombre: 'Alejo Castiblanco', codigo: '2024001' },
-      { nombre: 'Compañero IA', codigo: '2024002' },
+      { nombre: 'Andrés Acosta', codigo: '2024002' },
+      { nombre: 'Juan Galarza', codigo: '2024003' },
     ]);
   });
 
